@@ -129,10 +129,59 @@ fn main() {
     let (red, green, blue) = pixel;
     println!("red: {}, green: {}, blue: {}", red, green, blue);
 
-    let mut variable = 5;
-    let variable_reference = &variable;
-    variable = 0;
-    println!("{}", variable_reference);
+    // Iteration
+    let my_arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+    println!("iteration over an array");
+    for element in my_arr {
+        println!("{}", element);
+    }
 
+    println!("\niteration over a real iterator");
+    for element in my_arr.iter() {
+        println!("{}", element);
+    }
+
+    println!("\nPython-style range");
+    for element in 0..10 {
+        println!("{}", element);
+    }
+   
+    println!("");
+    let mut counter = 0;
+    loop {
+        println!("loop {}", counter);
+
+        if counter > 5 {
+            break;
+        }
+
+        counter = counter + 1;
+    }
+
+    let mut a = 0;
+    let mut b = 0;
+
+    'parent: loop {
+        a += 1;
+
+        loop {
+            println!("a: {}, b: {}", a, b);
+            b += 1;
+
+            if a + b == 10 {
+                println!("\n{} + {} = 10", a, b);
+                break 'parent;
+            }
+        }
+    }
+
+    for i in 0..10 {
+        if i % 2 == 0 {
+            continue;
+        }
+        println!("{}", i)
+    }
+    let _var = "42".parse::<i32>();
+    println!("{:?}", _var);
 }
